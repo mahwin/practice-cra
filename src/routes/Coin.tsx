@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useLocation, useParams, useMatch, Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Chart from "./Chart";
+import Price from "./Price";
 
 const Title = styled.h1`
   font-size: 48px;
@@ -188,10 +190,14 @@ function Coin() {
 
           <Tabs>
             <Tab isActive={chartMatch !== null}>
-              <Link to={`/${coinId}/chart`}>Chart</Link>
+              <Link to={`/${coinId}/chart`}>
+                <Chart />
+              </Link>
             </Tab>
             <Tab isActive={priceMatch !== null}>
-              <Link to={`/${coinId}/price`}>Price</Link>
+              <Link to={`/${coinId}/price`}>
+                <Price />
+              </Link>
             </Tab>
           </Tabs>
           <Outlet />
