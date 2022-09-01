@@ -1,8 +1,4 @@
-import { createCipheriv } from "crypto";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Router from "./Router";
-import Coin from "./routes/Coin";
-import Coins from "./routes/Coins";
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
