@@ -1,34 +1,27 @@
-import styled from "styled-components";
-import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 const Container = styled.div`
-  padding: 0px 10px;
-  max-width: 560px;
+  padding: 0px 20px;
+  max-width: 480px;
   margin: 0 auto;
 `;
-
-const Header = styled.div`
+const Header = styled.header`
   height: 15vh;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
-const Title = styled.h1`
-  color: ${(props) => props.theme.textColor};
-  font-size: 50px;
-`;
-
-const CoinList = styled.ul``;
+const CoinsList = styled.ul``;
 const Coin = styled.li`
   background-color: white;
-  color: ${(props) => props.theme.bgColor};
-  padding: 20px;
-  margin-top: 10px;
+  color: ${(props) => props.theme.textColor};
   border-radius: 15px;
-  cursor: pointer;
-
+  margin-bottom: 10px;
   a {
+    display: flex;
+    align-items: center;
+    padding: 20px;
     transition: color 0.2s ease-in;
   }
   &:hover {
@@ -37,36 +30,20 @@ const Coin = styled.li`
     }
   }
 `;
+const Title = styled.h1`
+  font-size: 48px;
+  color: ${(props) => props.theme.textColor};
+`;
+const Loader = styled.span`
+  text-align: center;
+  display: block;
+`;
 
-const coins = [
-  {
-    id: "btc-bitcoin",
-    name: "Bitcoin",
-    symbol: "BTC",
-    rank: 1,
-    is_new: false,
-    is_active: true,
-    type: "coin",
-  },
-  {
-    id: "eth-ethereum",
-    name: "Ethereum",
-    symbol: "ETH",
-    rank: 2,
-    is_new: false,
-    is_active: true,
-    type: "coin",
-  },
-  {
-    id: "hex-hex",
-    name: "HEX",
-    symbol: "HEX",
-    rank: 3,
-    is_new: false,
-    is_active: true,
-    type: "token",
-  },
-];
+const Img = styled.img`
+  width: 35px;
+  height: 35px;
+  margin-right: 10px;
+`;
 
 interface CoinInterface {
   id: string;
@@ -77,20 +54,15 @@ interface CoinInterface {
   is_active: boolean;
   type: string;
 }
-const Loader = styled.span`
-  text-align: center;
-  display: block;
-`;
-
 function Coins() {
   const [coins, setCoins] = useState<CoinInterface[]>([]);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async () => {
       const response = await fetch("https://api.coinpaprika.com/v1/coins");
       const json = await response.json();
       setCoins(json.slice(0, 100));
-      setIsLoading(false);
+      setLoading(false);
     })();
   }, []);
   return (
@@ -98,19 +70,28 @@ function Coins() {
       <Header>
         <Title>코인</Title>
       </Header>
-      <CoinList>
-        {isLoading ? (
-          <Loader>Loading ...</Loader>
-        ) : (
-          coins.map((coin) => (
+      {loading ? (
+        <Loader>Loading...</Loader>
+      ) : (
+        <CoinsList>
+          {coins.map((coin) => (
             <Coin key={coin.id}>
-              <Link to={"none"}>{coin.name} &rarr;</Link>
+              <Link
+                to={{
+                  pathname: `/${coin.id}`,
+                  state: { name: coin.name },
+                }}
+              >
+                <Img
+                  src={`https://coinicons-api.vercel.app/api/icon/${coin.symbol.toLowerCase()}`}
+                />
+                {coin.name} &rarr;
+              </Link>
             </Coin>
-          ))
-        )}
-      </CoinList>
+          ))}
+        </CoinsList>
+      )}
     </Container>
   );
 }
-
 export default Coins;
