@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { useRecoilState } from "recoil";
+import { useSetRecoilState } from "recoil";
 import { toDoState } from "./atom";
 
 interface IForm {
@@ -7,7 +7,7 @@ interface IForm {
 }
 
 function CreateToDo() {
-  const [toDos, setToDos] = useRecoilState(toDoState);
+  const setToDos = useSetRecoilState(toDoState);
   const { register, handleSubmit, setValue } = useForm<IForm>();
   const handleValid = ({ toDo }: IForm) => {
     setToDos((oldToDos) => [
@@ -16,7 +16,6 @@ function CreateToDo() {
     ]);
     setValue("toDo", "");
   };
-
   return (
     <form onSubmit={handleSubmit(handleValid)}>
       <input
