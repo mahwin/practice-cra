@@ -35,6 +35,20 @@ function App() {
         };
       });
     }
+    if (destination?.droppableId !== source.droppableId) {
+      // cross board movement
+      setToDos((oldToDos) => {
+        const destinationBoard = [...oldToDos[destination?.droppableId!]];
+        const sourceBoard = [...oldToDos[source.droppableId]];
+        sourceBoard.splice(source.index, 1);
+        destinationBoard.splice(destination?.index!, 0, draggableId);
+        return {
+          ...oldToDos,
+          [source.droppableId]: sourceBoard,
+          [destination?.droppableId!]: destinationBoard,
+        };
+      });
+    }
   };
   return (
     <DragDropContext onDragEnd={onDragEnd}>

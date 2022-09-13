@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   border-radius: 5px;
   min-height: 200px;
 `;
+const Area = styled.div`
+  background-color: blue;
+  flex-grow: 1;
+`;
 
 interface IBoardProps {
   toDos: string[];
@@ -27,12 +31,12 @@ function Board({ toDos, boardId }: IBoardProps) {
       <Title>{boardId}</Title>
       <Droppable droppableId={boardId}>
         {(magic) => (
-          <div ref={magic.innerRef} {...magic.droppableProps}>
+          <Area ref={magic.innerRef} {...magic.droppableProps}>
             {toDos.map((toDo, index) => (
               <DragabbleCard key={toDo} index={index} toDo={toDo} />
             ))}
             {magic.placeholder}
-          </div>
+          </Area>
         )}
       </Droppable>
     </Wrapper>
