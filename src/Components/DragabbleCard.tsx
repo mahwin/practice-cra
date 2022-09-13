@@ -1,5 +1,6 @@
 import { Draggable } from "react-beautiful-dnd";
 import styled from "styled-components";
+import React from "react";
 
 const Card = styled.div`
   border-radius: 5px;
@@ -29,4 +30,4 @@ function DraggableCard({ toDo, index }: IDragabbleCradProrps) {
   );
 }
 
-export default DraggableCard;
+export default React.memo(DraggableCard);
