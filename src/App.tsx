@@ -4,6 +4,7 @@ import Gesture from "./Components/Gesture";
 import Variants from "./Components/Variants";
 import DragAnimation from "./Components/Drag";
 import ConstraintDrag from "./Components/ConstraintDarg";
+import SvgAnimation from "./Components/SvgAnimation";
 
 const Wrapper = styled.div`
   height: 100vh;
@@ -28,6 +29,7 @@ function App() {
         <Gesture />
         <DragAnimation />
         <ConstraintDrag />
+        <SvgAnimation />
       </AnimationWrapper>
     </Wrapper>
   );
