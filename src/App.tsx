@@ -9,11 +9,19 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
+const AnimationWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+`;
+
 function App() {
   return (
     <Wrapper>
-      <BoxAnimation />
-      <Variants />
+      <AnimationWrapper>
+        <BoxAnimation />
+        <Variants />
+      </AnimationWrapper>
     </Wrapper>
   );
 }
