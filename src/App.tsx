@@ -1,6 +1,9 @@
 import styled from "styled-components";
-import BoxAnimation from "./Components/BoxAnimation";
+import Box from "./Components/BoxAnimation";
+import Gesture from "./Components/Gesture";
 import Variants from "./Components/Variants";
+import DragAnimation from "./Components/Drag";
+
 const Wrapper = styled.div`
   height: 100vh;
   width: 100vw;
@@ -19,8 +22,10 @@ function App() {
   return (
     <Wrapper>
       <AnimationWrapper>
-        <BoxAnimation />
+        <Box />
         <Variants />
+        <Gesture />
+        <DragAnimation />
       </AnimationWrapper>
     </Wrapper>
   );

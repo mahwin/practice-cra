@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-const Box = styled(motion.div)`
+const Wapper = styled(motion.div)`
   width: 200px;
   height: 200px;
   background-color: white;
@@ -14,8 +14,8 @@ const boxVars = {
   end: { scale: 1, rotateZ: 360, transition: { type: "spring", delay: 0.5 } },
 };
 
-function BoxAnimation() {
-  return <Box variants={boxVars} initial="start" animate="end" />;
+function Box() {
+  return <Wapper variants={boxVars} initial="start" animate="end" />;
 }
 
-export default BoxAnimation;
+export default Box;
