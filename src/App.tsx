@@ -5,12 +5,14 @@ import Variants from "./Components/Variants";
 import DragAnimation from "./Components/Drag";
 import ConstraintDrag from "./Components/ConstraintDarg";
 import SvgAnimation from "./Components/SvgAnimation";
+import PresentBox from "./Components/PresentBox";
 
 const Wrapper = styled.div`
-  height: 100vh;
+  margin-top: 20px;
+  height: 150vh;
   width: 100vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 `;
 
@@ -31,6 +33,7 @@ function App() {
         <ConstraintDrag />
         <SvgAnimation />
       </AnimationWrapper>
+      <PresentBox />
     </Wrapper>
   );
 }
