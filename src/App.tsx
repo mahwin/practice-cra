@@ -8,10 +8,11 @@ import SvgAnimation from "./Components/SvgAnimation";
 import PresentBox from "./Components/PresentBox";
 import SlideAnimation from "./Components/SlideAnimation";
 import LayoutAnimation from "./Components/LayoutAnimation";
+import FocusAnimation from "./Components/FocusAnimation";
 
 const Wrapper = styled.div`
   margin-top: 20px;
-  height: 170vh;
+  height: 230vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -38,6 +39,7 @@ function App() {
       <PresentBox />
       <SlideAnimation />
       <LayoutAnimation />
+      <FocusAnimation />
     </Wrapper>
   );
 }
