@@ -6,6 +6,7 @@ import DragAnimation from "./Components/Drag";
 import ConstraintDrag from "./Components/ConstraintDarg";
 import SvgAnimation from "./Components/SvgAnimation";
 import PresentBox from "./Components/PresentBox";
+import SlideAnimation from "./Components/SlideAnimation";
 
 const Wrapper = styled.div`
   margin-top: 20px;
@@ -34,6 +35,7 @@ function App() {
         <SvgAnimation />
       </AnimationWrapper>
       <PresentBox />
+      <SlideAnimation />
     </Wrapper>
   );
 }
