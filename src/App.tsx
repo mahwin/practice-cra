@@ -7,10 +7,11 @@ import ConstraintDrag from "./Components/ConstraintDarg";
 import SvgAnimation from "./Components/SvgAnimation";
 import PresentBox from "./Components/PresentBox";
 import SlideAnimation from "./Components/SlideAnimation";
+import LayoutAnimation from "./Components/LayoutAnimation";
 
 const Wrapper = styled.div`
   margin-top: 20px;
-  height: 150vh;
+  height: 170vh;
   width: 100vw;
   display: flex;
   flex-direction: column;
@@ -36,6 +37,7 @@ function App() {
       </AnimationWrapper>
       <PresentBox />
       <SlideAnimation />
+      <LayoutAnimation />
     </Wrapper>
   );
 }
