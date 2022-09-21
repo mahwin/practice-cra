@@ -1,46 +1,19 @@
-import styled from "styled-components";
-import Box from "./Components/BoxAnimation";
-import Gesture from "./Components/Gesture";
-import Variants from "./Components/Variants";
-import DragAnimation from "./Components/Drag";
-import ConstraintDrag from "./Components/ConstraintDarg";
-import SvgAnimation from "./Components/SvgAnimation";
-import PresentBox from "./Components/PresentBox";
-import SlideAnimation from "./Components/SlideAnimation";
-import LayoutAnimation from "./Components/LayoutAnimation";
-import FocusAnimation from "./Components/FocusAnimation";
-
-const Wrapper = styled.div`
-  margin-top: 20px;
-  height: 230vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const AnimationWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-`;
+import AnimationPage from "./AnimationPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./Routes/Home";
+import Tv from "./Routes/Tv";
+import Search from "./Routes/Search";
 
 function App() {
   return (
-    <Wrapper>
-      <AnimationWrapper>
-        <Box />
-        <Variants />
-        <Gesture />
-        <DragAnimation />
-        <ConstraintDrag />
-        <SvgAnimation />
-      </AnimationWrapper>
-      <PresentBox />
-      <SlideAnimation />
-      <LayoutAnimation />
-      <FocusAnimation />
-    </Wrapper>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tv" element={<Tv />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/animation" element={<AnimationPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 export default App;

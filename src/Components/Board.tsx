@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   width: 300px;
   padding: 10px 0px;
   padding-top: 10px;
-  background-color: ${(props) => props.theme.boardColor};
+  background-color: ${(props) => "gray"};
   border-radius: 5px;
   min-height: 200px;
   display: flex;
